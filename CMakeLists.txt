@@ -9,6 +9,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}) # Include current directory - f
 # demo
 set(DEMO_TARGETS
     basic
+    basic-loop
     dyt-rms
     svd
     kyutai-mimi
