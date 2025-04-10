@@ -1,10 +1,14 @@
-# ggml-easy
+# ggml-easer
 
-A simple C++ wrapper around [GGML](https://github.com/ggml-org/ggml) to make model loading and execution easier with GPU acceleration support.
+A simple C++ wrapper around [GGML](https://github.com/ggml-org/ggml), make by [NGXSON](https://github.com/ngxson), forked for educational purposes.
 
 ## Introduction
 
-`ggml-easy` is a lightweight header-only C++ library that simplifies working with GGML, the tensor library used in projects like llama.cpp. It provides a clean interface for loading GGUF models, creating computation graphs, and executing them on CPU or GPU with minimal boilerplate code.
+I'm Thomas & I am an LLM inference on RK3588 for llama3.2 - as fast as possible
+
+## Why?
+
+I'm building Luna, my AI startup. The inference layer serves as a starting point.
 
 ## Setup
 
@@ -20,6 +24,32 @@ Example:
 
 // Your code here
 ```
+
+
+## Setup GGML:
+```bash
+cd ggml
+git submodule init
+git submodule update
+```
+
+'''bash
+git clone https://github.com/ggml-org/ggml
+cd ggml
+
+# install python dependencies in a virtual environment
+python3.10 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# build the examples
+mkdir build && cd build
+cmake ..
+cmake --build . --config Release -j 8
+
+'''
+
+
 
 See [demo/basic.cpp](demo/basic.cpp) for a complete example of how to use `ggml-easy` in a project.
 

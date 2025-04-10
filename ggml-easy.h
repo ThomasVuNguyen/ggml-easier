@@ -19,6 +19,8 @@
 #include <fstream>
 #include <functional>
 #include <unordered_map>
+#include <cstdarg>
+#include <cmath>
 
 namespace ggml_easy {
 
