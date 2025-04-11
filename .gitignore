@@ -43,3 +43,6 @@ tmp
 
 # Python environment
 .venv/
+
+# Language Model files
+/demo/Luna-bin-files/*.bin

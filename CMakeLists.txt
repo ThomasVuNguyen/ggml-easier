@@ -17,6 +17,7 @@ set(DEMO_TARGETS
     kyutai-mimi
     safetensors
     basic-sum
+    llama3.2
     ) # Target all the example files
 
 foreach(TARGET ${DEMO_TARGETS}) # For each example file
