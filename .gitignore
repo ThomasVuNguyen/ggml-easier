@@ -47,3 +47,6 @@ tmp
 # Language Model files
 /demo/Luna-bin-files/*.bin
 /llama3.2-gguf/*gguf
+
+# Misc
+llama.cpp/

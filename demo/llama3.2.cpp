@@ -613,9 +613,22 @@ bool test_all_weights_available(const char* model_path) {
     }
 }
 
+/*
+    If you are looking to create memory freeing functions, you don't need it actually.
+    delete ctx will does all that. This is what great about GGML.
+*/
+// ----------------------------------------------------------------------------
+// Math Operations
+
+
+void rmsnorm(ggml_tensor* o, ggml_tensor* x, ggml_tensor* weight, int size){
+
+}
+
 // Add this to the main function to test the weights
 int main(int argc, char **argv){
-    
+    // ----------------------------------------------------------------------------
+    // Loading the model weights
     // Process command line arguments
     if (argc < 2) {
         printf("Usage: %s <model_path> [test_weights]\n", argv[0]);
@@ -668,6 +681,18 @@ int main(int argc, char **argv){
         printf("Failed to load model.\n");
         return 1;
     }
-
+    // ----------------------------------------------------------------------------
+    // Math Operations
+    ggml_easy::ctx_params params;
+    ggml_easy::ctx ctx(params);
+    /*
+    ctx.build_graph([&](ggml_context * ctx_gf, ggml_cgraph * gf, auto & utils) {
+        ggml_tensor * a = utils.new_input("a", GGML_TYPE_F16, cols_A, rows_A);
+        ggml_tensor * b = utils.new_input("b", GGML_TYPE_F16, cols_B, rows_B);
+        ggml_tensor * a_mul_b = ggml_mul_mat(ctx_gf, a, b);
+        utils.debug_print(a_mul_b, "a_mul_b");
+        ggml_tensor * result = ggml_scale(ctx_gf, a_mul_b, 2);
+        utils.mark_output(result, "result");
+    });*/
     return 0;
 }
