@@ -18,6 +18,7 @@ set(DEMO_TARGETS
     safetensors
     basic-sum
     llama3.2
+    load-gguf-llama
     ) # Target all the example files
 
 foreach(TARGET ${DEMO_TARGETS}) # For each example file
