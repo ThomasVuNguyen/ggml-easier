@@ -1,4 +1,4 @@
-# ggml-easer
+# ggml-easier
 
 A simple C++ wrapper around [GGML](https://github.com/ggml-org/ggml), make by [NGXSON](https://github.com/ngxson), forked for educational purposes.
 

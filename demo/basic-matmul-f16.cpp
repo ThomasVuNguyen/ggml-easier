@@ -38,8 +38,8 @@ int main() {
     // This creates the 'frame' of matrix a & b (size & operations between them)
     // a & b are pointers
     ctx.build_graph([&](ggml_context * ctx_gf, ggml_cgraph * gf, auto & utils) {
-        ggml_tensor * a = utils.new_input("a", GGML_TYPE_F32, cols_A, rows_A);
-        ggml_tensor * b = utils.new_input("b", GGML_TYPE_F32, cols_B, rows_B);
+        ggml_tensor * a = utils.new_input("a", GGML_TYPE_F16, cols_A, rows_A);
+        ggml_tensor * b = utils.new_input("b", GGML_TYPE_F16, cols_B, rows_B);
         ggml_tensor * a_mul_b = ggml_mul_mat(ctx_gf, a, b);
         utils.debug_print(a_mul_b, "a_mul_b");
         ggml_tensor * result = ggml_scale(ctx_gf, a_mul_b, 2);
