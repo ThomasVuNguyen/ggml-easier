@@ -23,8 +23,8 @@ int main(){
 
     // Note: be careful with the braces
     ctx.build_graph([&](ggml_context* ctx_gf, ggml_cgraph* gf, auto & utils){
-        ggml_tensor* x = utils.new_input("x", GGML_TYPE_F32, cols_X, rows_X);
-        ggml_tensor* y = utils.new_input("y", GGML_TYPE_F32, cols_Y, rows_Y);
+        ggml_tensor* x = utils.new_input("x", GGML_TYPE_Q4_0, cols_X, rows_X);
+        ggml_tensor* y = utils.new_input("y", GGML_TYPE_Q4_0, cols_Y, rows_Y);
         ggml_tensor* a_add_b = ggml_add(ctx_gf, x, y);
         utils.debug_print(a_add_b, "a_add_b");
         ggml_tensor* result = ggml_scale(ctx_gf, a_add_b, 2);
