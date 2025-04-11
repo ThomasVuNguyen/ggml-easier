@@ -14,6 +14,7 @@ set(DEMO_TARGETS
     svd
     kyutai-mimi
     safetensors
+    basic-sum
     ) # Target all the example files
 
 foreach(TARGET ${DEMO_TARGETS}) # For each example file
