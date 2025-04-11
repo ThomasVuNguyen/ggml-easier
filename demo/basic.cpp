@@ -35,6 +35,8 @@ int main() {
     };
 
     // create cgraph
+    // This creates the 'frame' of matrix a & b (size & operations between them)
+    // a & b are pointers
     ctx.build_graph([&](ggml_context * ctx_gf, ggml_cgraph * gf, auto & utils) {
         ggml_tensor * a = utils.new_input("a", GGML_TYPE_F32, cols_A, rows_A);
         ggml_tensor * b = utils.new_input("b", GGML_TYPE_F32, cols_B, rows_B);
@@ -45,6 +47,7 @@ int main() {
     });
 
     // set data
+    // after the 'frame' is defined, assign values for a & b
     ctx.set_tensor_data("a", matrix_A);
     ctx.set_tensor_data("b", matrix_B);
 
@@ -52,6 +55,7 @@ int main() {
     ggml_easy::debug::print_backend_buffer_info(ctx);
 
     // compute
+    // let computer goes brr
     ggml_status status = ctx.compute();
     if (status != GGML_STATUS_SUCCESS) {
         std::cerr << "error: ggml compute return status: " << status << std::endl;
